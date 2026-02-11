@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --base: #0f3658;
+  --base-soft: #dce8f2;
+  --accent: #c18a36;
+  --surface: #f3f5f7;
+  --card: #ffffff;
+  --ink: #1f2d3d;
+  --ink-soft: #4f6072;
+  --line: #d2dbe4;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-base: var(--base);
+  --color-base-soft: var(--base-soft);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --font-sans: var(--font-noto-sans-jp);
+  --font-serif: var(--font-noto-serif-jp);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #f8fafc 0%, var(--surface) 50%);
+  color: var(--ink);
+  font-family: var(--font-noto-sans-jp), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.section-card {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(15, 54, 88, 0.06);
 }
