@@ -5,7 +5,7 @@ import { navLinks } from "@/lib/site-content";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-[--line] bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-8">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 md:px-8">
         <Link
           href="/"
           className="font-serif text-base font-semibold tracking-[0.12em] text-[--base] sm:text-lg"
@@ -13,7 +13,7 @@ export function SiteHeader() {
           永井行政書士事務所
         </Link>
 
-        <nav className="flex items-center gap-1 sm:gap-2">
+        <nav className="flex flex-1 flex-wrap items-center justify-end gap-1 sm:gap-2">
           {navLinks.map((link) => (
             <Link
               key={link.href}

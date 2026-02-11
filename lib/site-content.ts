@@ -29,9 +29,23 @@ export type FeeGuide = {
   note: string;
 };
 
+export type PricingPlan = {
+  service: string;
+  baseFee: string;
+  includes: string[];
+  conditions: string[];
+};
+
+export type PricingOption = {
+  option: string;
+  fee: string;
+  note: string;
+};
+
 export const navLinks: NavLink[] = [
   { href: "/", label: "ホーム" },
   { href: "/works", label: "取扱業務" },
+  { href: "/pricing", label: "料金表" },
   { href: "/about", label: "事務所案内" },
   { href: "/contact", label: "お問い合わせ" },
 ];
@@ -85,6 +99,76 @@ export const feeGuides: FeeGuide[] = [
     fee: "88,000円（税込）〜",
     note: "設立形態・必要手続きに応じて対応範囲を調整します。",
   },
+];
+
+export const pricingPlans: PricingPlan[] = [
+  {
+    service: "建設業許可（新規）",
+    baseFee: "132,000円（税込）〜",
+    includes: [
+      "要件確認ヒアリング",
+      "提出書類チェックリスト作成",
+      "申請書・添付書類作成支援",
+      "提出前最終確認",
+    ],
+    conditions: [
+      "法人・個人、申請区分により費用が変動します。",
+      "行政庁への手数料等の法定費用は別途必要です。",
+    ],
+  },
+  {
+    service: "在留資格更新申請",
+    baseFee: "55,000円（税込）〜",
+    includes: [
+      "必要資料の確認",
+      "申請理由書作成支援",
+      "申請書作成",
+      "提出前の不足資料確認",
+    ],
+    conditions: [
+      "在留資格の種類・雇用形態により見積額が変動します。",
+      "翻訳や追加証明資料の取得は別料金となる場合があります。",
+    ],
+  },
+  {
+    service: "法人設立後の届出支援",
+    baseFee: "88,000円（税込）〜",
+    includes: [
+      "必要届出の整理",
+      "届出書類作成支援",
+      "提出スケジュール設計",
+      "実行時の進捗フォロー",
+    ],
+    conditions: [
+      "業種・許認可の要否により対応範囲が変わります。",
+      "登記関連費用や公的手数料は含みません。",
+    ],
+  },
+];
+
+export const pricingOptions: PricingOption[] = [
+  {
+    option: "特急対応（7営業日以内の初回申請）",
+    fee: "+22,000円（税込）〜",
+    note: "受任状況と案件内容により対応可否を判断します。",
+  },
+  {
+    option: "追加書類作成・再提出対応",
+    fee: "+11,000円（税込）〜",
+    note: "追加提出の回数、資料量に応じて個別見積もりします。",
+  },
+  {
+    option: "訪問対応（都内23区外）",
+    fee: "+5,500円（税込）〜",
+    note: "移動時間・距離に応じて交通費実費をお願いする場合があります。",
+  },
+];
+
+export const pricingDisclaimers: string[] = [
+  "本料金は目安であり、案件の難易度・資料状況・申請区分により変動します。",
+  "公的機関へ納付する法定費用・手数料・証明書取得費用は別途ご負担いただきます。",
+  "受任後に追加作業が発生する場合は、事前に内容と費用をご説明し同意の上で対応します。",
+  "許認可の取得可否は審査機関の判断によるため、結果を保証するものではありません。",
 ];
 
 export const works: WorkItem[] = [

@@ -9,6 +9,9 @@ export function SiteFooter() {
           <Link href="/works" className="hover:text-[--base]">
             取扱業務
           </Link>
+          <Link href="/pricing" className="hover:text-[--base]">
+            料金表
+          </Link>
           <Link href="/about" className="hover:text-[--base]">
             事務所案内
           </Link>

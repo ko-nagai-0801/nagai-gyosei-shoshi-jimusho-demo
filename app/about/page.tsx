@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { FullBleedHero } from "@/components/full-bleed-hero";
 import { feeGuides, timeline } from "@/lib/site-content";
@@ -57,6 +58,12 @@ export default function AboutPage() {
             </article>
           ))}
         </div>
+        <Link
+          href="/pricing"
+          className="inline-flex w-fit rounded-full border border-[--base] px-5 py-2 text-sm font-semibold text-[--base] transition hover:bg-[--base] hover:text-white"
+        >
+          詳細条件・オプション費用を見る
+        </Link>
       </section>
 
       <section className="space-y-6">

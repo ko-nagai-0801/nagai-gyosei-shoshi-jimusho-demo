@@ -31,6 +31,13 @@ export default function HomePage() {
             </article>
           ))}
         </div>
+
+        <Link
+          href="/pricing"
+          className="inline-flex w-fit rounded-full border border-[--base] px-5 py-2 text-sm font-semibold text-[--base] transition hover:bg-[--base] hover:text-white"
+        >
+          詳細な料金表を見る
+        </Link>
       </section>
 
       <section className="space-y-6">

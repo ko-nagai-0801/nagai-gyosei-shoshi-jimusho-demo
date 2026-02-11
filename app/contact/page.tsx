@@ -22,7 +22,7 @@ export default function ContactPage() {
         description="メール・電話・オンライン相談の3つの窓口からご連絡いただけます。まずは現在のお悩みをお聞かせください。"
         actions={[
           { href: "#contact-form", label: "フォームへ進む" },
-          { href: "/works", label: "支援事例を見る", style: "secondary" },
+          { href: "/pricing", label: "料金表を確認する", style: "secondary" },
         ]}
       />
 
