@@ -54,6 +54,16 @@ export type CancellationPolicy = {
   note: string;
 };
 
+export type InvoiceSampleLine = {
+  label: string;
+  value: string;
+};
+
+export type PaymentMethod = {
+  method: string;
+  detail: string;
+};
+
 export const navLinks: NavLink[] = [
   { href: "/", label: "ホーム" },
   { href: "/works", label: "取扱業務" },
@@ -210,6 +220,36 @@ export const cancellationPolicies: CancellationPolicy[] = [
 ];
 
 export const pricingRevisedAt = "2026年2月11日";
+
+export const qualifiedInvoiceNumber = "T1234567890123（表記サンプル）";
+
+export const invoiceSampleLines: InvoiceSampleLine[] = [
+  { label: "請求書番号", value: "INV-2026-0211-001" },
+  { label: "発行日", value: "2026年2月11日" },
+  { label: "件名", value: "建設業許可（新規）申請サポート業務" },
+  { label: "業務報酬", value: "120,000円" },
+  { label: "消費税（10%）", value: "12,000円" },
+  { label: "ご請求金額", value: "132,000円（税込）" },
+  { label: "支払期限", value: "2026年2月25日" },
+  { label: "支払先", value: "〇〇銀行 〇〇支店 普通 1234567 ナガイタロウ" },
+];
+
+export const paymentMethods: PaymentMethod[] = [
+  {
+    method: "銀行振込",
+    detail:
+      "請求書記載の口座へお振込みください。振込手数料はご負担をお願いしています。",
+  },
+  {
+    method: "クレジットカード決済",
+    detail:
+      "Visa / Mastercard / JCB / AMEX に対応。決済リンクをメールでご案内します。",
+  },
+  {
+    method: "法人向け請求書払い",
+    detail: "月末締め翌月末払いなど、社内規程に合わせた条件調整は事前相談可能です。",
+  },
+];
 
 export const pricingDisclaimers: string[] = [
   "本料金は目安であり、案件の難易度・資料状況・申請区分により変動します。",

@@ -4,11 +4,14 @@ import Link from "next/link";
 import { FullBleedHero } from "@/components/full-bleed-hero";
 import {
   cancellationPolicies,
+  invoiceSampleLines,
   paymentTerms,
+  paymentMethods,
   pricingDisclaimers,
   pricingOptions,
   pricingPlans,
   pricingRevisedAt,
+  qualifiedInvoiceNumber,
 } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -116,6 +119,40 @@ export default function PricingPage() {
 
       <section className="space-y-6">
         <div className="space-y-2">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">INVOICE SAMPLE</p>
+          <h2 className="font-serif text-3xl text-[var(--base)]">請求書サンプル</h2>
+        </div>
+
+        <div className="section-card p-6 sm:p-8">
+          <dl className="grid gap-3 sm:grid-cols-2">
+            {invoiceSampleLines.map((line) => (
+              <div key={line.label} className="rounded-lg border border-[var(--line)] px-4 py-3">
+                <dt className="text-xs font-semibold tracking-[0.1em] text-[var(--accent)]">{line.label}</dt>
+                <dd className="mt-1 text-sm font-medium text-[var(--ink)]">{line.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">PAYMENT METHODS</p>
+          <h2 className="font-serif text-3xl text-[var(--base)]">支払い方法（振込 / カード等）</h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {paymentMethods.map((method) => (
+            <article key={method.method} className="section-card p-6">
+              <h3 className="font-serif text-xl text-[var(--base)]">{method.method}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--ink-soft)]">{method.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="space-y-2">
           <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">DISCLAIMER</p>
           <h2 className="font-serif text-3xl text-[var(--base)]">免責事項</h2>
         </div>
@@ -128,6 +165,10 @@ export default function PricingPage() {
           </ul>
         </div>
 
+        <p className="text-sm font-medium text-[var(--ink-soft)]">
+          適格請求書番号:{" "}
+          <span className="font-semibold text-[var(--ink)]">{qualifiedInvoiceNumber}</span>
+        </p>
         <p className="text-sm font-medium text-[var(--ink-soft)]">
           料金改定日: <span className="font-semibold text-[var(--ink)]">{pricingRevisedAt}</span>
         </p>
