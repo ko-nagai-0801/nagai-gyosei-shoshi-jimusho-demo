@@ -10,6 +10,7 @@ export default function HomePage() {
         eyebrow="MACHI NO HOURITSUYA"
         title="手続きの不安を、ひとつずつ一緒に整理します"
         description="永井行政書士事務所は、建設業許可・在留資格・法人関連手続きを中心に、地域の皆さまが相談しやすい窓口を目指しています。"
+        imagePriority
         actions={[
           { href: "/contact", label: "まずは相談してみる" },
           { href: "/works", label: "取扱業務を見る", style: "secondary" },

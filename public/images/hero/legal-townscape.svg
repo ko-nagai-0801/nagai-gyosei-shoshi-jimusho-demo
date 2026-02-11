@@ -1,0 +1,77 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Legal Office Townscape</title>
+  <desc id="desc">An illustrated city background for a legal office hero section.</desc>
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3A658B"/>
+      <stop offset="0.58" stop-color="#2A4E71"/>
+      <stop offset="1" stop-color="#1F3B56"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="800" y1="532" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A4867"/>
+      <stop offset="1" stop-color="#1A3148"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1290 158) rotate(91.5) scale(210 270)">
+      <stop stop-color="#E6B26A" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#E6B26A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glassA" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7EA2C2"/>
+      <stop offset="1" stop-color="#4B6E8E"/>
+    </linearGradient>
+    <linearGradient id="glassB" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#86A8C6"/>
+      <stop offset="1" stop-color="#547696"/>
+    </linearGradient>
+    <pattern id="window" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect x="4" y="5" width="9" height="10" fill="#DCE9F7" fill-opacity="0.42"/>
+      <rect x="15" y="5" width="5" height="10" fill="#DCE9F7" fill-opacity="0.26"/>
+      <rect x="4" y="17" width="16" height="3" fill="#C8DBEF" fill-opacity="0.2"/>
+    </pattern>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#sun)"/>
+  <circle cx="236" cy="126" r="112" fill="#87A8C7" fill-opacity="0.28" filter="url(#soft)"/>
+  <circle cx="1264" cy="258" r="148" fill="#6E96BA" fill-opacity="0.22" filter="url(#soft)"/>
+
+  <rect y="530" width="1600" height="370" fill="url(#ground)"/>
+  <path d="M0 610C240 560 320 660 560 640C820 618 920 544 1160 582C1360 614 1460 622 1600 586V900H0V610Z" fill="#1E3952"/>
+  <path d="M0 676C172 634 308 696 502 684C706 670 874 614 1088 646C1300 680 1452 680 1600 650V900H0V676Z" fill="#182F45"/>
+
+  <g opacity="0.96">
+    <rect x="156" y="366" width="160" height="234" rx="6" fill="#25425F"/>
+    <rect x="176" y="390" width="120" height="180" fill="url(#window)"/>
+
+    <rect x="316" y="290" width="184" height="320" rx="8" fill="#2C4E70"/>
+    <rect x="338" y="320" width="140" height="260" fill="url(#window)"/>
+
+    <rect x="486" y="250" width="300" height="390" rx="10" fill="url(#glassA)"/>
+    <rect x="522" y="286" width="228" height="314" fill="url(#window)"/>
+    <rect x="560" y="216" width="150" height="48" rx="8" fill="#D5E4F3" fill-opacity="0.82"/>
+    <rect x="580" y="228" width="110" height="8" rx="4" fill="#5A7A98"/>
+    <rect x="580" y="242" width="74" height="8" rx="4" fill="#5A7A98"/>
+
+    <rect x="760" y="314" width="200" height="302" rx="8" fill="#315574"/>
+    <rect x="786" y="346" width="148" height="242" fill="url(#window)"/>
+
+    <rect x="936" y="238" width="324" height="408" rx="10" fill="url(#glassB)"/>
+    <rect x="972" y="274" width="252" height="338" fill="url(#window)"/>
+
+    <rect x="1238" y="336" width="210" height="276" rx="8" fill="#2D4E6F"/>
+    <rect x="1262" y="366" width="162" height="222" fill="url(#window)"/>
+  </g>
+
+  <g opacity="0.5">
+    <ellipse cx="602" cy="670" rx="270" ry="24" fill="#0F2234"/>
+    <ellipse cx="1094" cy="680" rx="252" ry="24" fill="#102337"/>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M84 742H140L154 900H58L84 742Z" fill="#1A334A"/>
+    <path d="M1408 742H1462L1490 900H1382L1408 742Z" fill="#1A334A"/>
+  </g>
+</svg>
