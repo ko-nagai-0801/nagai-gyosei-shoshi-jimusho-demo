@@ -19,10 +19,18 @@
 - `/works` 取扱業務・支援事例
 - `/pricing` 料金表
   - 詳細条件 / オプション費用 / 支払条件 / キャンセルポリシー
-  - 請求書サンプル（PDF風プレビュー + 仮PDFダウンロード）
+  - 請求書サンプル（1ページ目プレビュー + 入力連動のPDF擬似生成）
   - 適格請求書番号 / 料金改定日
 - `/about` 事務所案内
 - `/contact` お問い合わせ
+
+## 主な追加機能
+- モバイル用ハンバーガーメニュー
+  - `md` 未満でメニュー切替表示
+- 請求書PDFの擬似生成 API
+  - `GET /api/invoice-sample`
+  - `pdf-lib` + `@pdf-lib/fontkit` + `@fontsource/noto-sans-jp` を使用
+  - 日本語フォント埋め込みで、入力内容を反映したPDFを生成
 
 ## ローカル開発
 ```bash
@@ -46,8 +54,8 @@ npm run build
 ## 実装メモ
 - Hero は full-bleed 実装（親の `max-width` 制約を受けない）
 - フォーム送信は UI デモ（外部送信は未接続）
-- 仮PDFは `public/documents/invoice-sample.pdf` に配置
-- `/pricing` のダウンロードボタンから仮PDFを取得可能
+- 仮PDFは `public/documents/invoice-sample.pdf` に配置（静的サンプル）
+- `/pricing` の入力連動ダウンロードは `/api/invoice-sample` で動的生成
 
 ## 開発ルール
 - コミットメッセージは日本語で記述する

@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { FullBleedHero } from "@/components/full-bleed-hero";
+import { InvoiceGenerator } from "@/components/invoice-generator";
 import {
   cancellationPolicies,
-  invoiceSampleMeta,
-  invoiceSampleLines,
   paymentTerms,
   paymentMethods,
   pricingDisclaimers,
@@ -124,59 +123,7 @@ export default function PricingPage() {
           <h2 className="font-serif text-3xl text-[var(--base-strong)]">請求書サンプル（1ページ目プレビュー）</h2>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-[1.35fr_0.85fr]">
-          <article className="section-card overflow-hidden">
-            <div className="flex items-center justify-between border-b border-[var(--line)] bg-[var(--base-soft)] px-5 py-3">
-              <p className="text-sm font-semibold text-[var(--base-strong)]">{invoiceSampleMeta.fileName}</p>
-              <p className="rounded-full border border-[var(--base)] px-2 py-1 text-xs font-semibold text-[var(--base)]">
-                {invoiceSampleMeta.format}
-              </p>
-            </div>
-
-            <div className="bg-[#fffefb] p-6 sm:p-8">
-              <div className="mx-auto w-full max-w-2xl rounded-md border border-[var(--line)] bg-white p-5 shadow-[0_8px_20px_rgba(69,56,39,0.08)]">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">SAMPLE</p>
-                    <h3 className="mt-1 font-serif text-xl text-[var(--base-strong)]">ご請求書</h3>
-                  </div>
-                  <p className="text-xs text-[var(--ink-soft)]">No. INV-2026-0211-001</p>
-                </div>
-
-                <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-                  {invoiceSampleLines.map((line) => (
-                    <div key={line.label} className="rounded-md border border-[var(--line)] px-3 py-2">
-                      <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">
-                        {line.label}
-                      </dt>
-                      <dd className="mt-1 text-xs font-medium text-[var(--ink)]">{line.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-          </article>
-
-          <aside className="section-card flex flex-col justify-between gap-5 p-6">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">DOWNLOAD</p>
-              <h3 className="font-serif text-2xl text-[var(--base-strong)]">PDFをダウンロード</h3>
-              <p className="text-sm leading-7 text-[var(--ink-soft)]">
-                形式: {invoiceSampleMeta.format} / サイズ: {invoiceSampleMeta.size}
-              </p>
-            </div>
-
-            <a
-              href={invoiceSampleMeta.downloadHref}
-              download
-              className="inline-flex justify-center rounded-full bg-[var(--base)] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95"
-            >
-              請求書サンプルPDFをダウンロード
-            </a>
-
-            <p className="text-xs leading-6 text-[var(--ink-soft)]">{invoiceSampleMeta.note}</p>
-          </aside>
-        </div>
+        <InvoiceGenerator />
       </section>
 
       <section className="space-y-6">
