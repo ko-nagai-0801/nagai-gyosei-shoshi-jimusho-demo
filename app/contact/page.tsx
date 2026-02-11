@@ -7,7 +7,7 @@ import { contactMethods } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "永井行政書士事務所デモサイトのお問い合わせページです。",
+  description: "永井行政書士事務所へのお問い合わせ方法をご案内します。",
   alternates: {
     canonical: "/contact",
   },
@@ -18,16 +18,16 @@ export default function ContactPage() {
     <>
       <FullBleedHero
         eyebrow="CONTACT"
-        title="ご相談内容に合わせて、最短で連絡できる導線を用意"
-        description="メール・電話・オンライン面談の3導線を配置しています。採用担当者向けの問い合わせ導線デモとしてご確認ください。"
+        title="ご相談内容に応じた連絡方法をご用意しています"
+        description="メール・電話・オンライン相談の3つの窓口からご連絡いただけます。まずは現在のお悩みをお聞かせください。"
         actions={[
           { href: "#contact-form", label: "フォームへ進む" },
-          { href: "/works", label: "実績を先に見る", style: "secondary" },
+          { href: "/works", label: "支援事例を見る", style: "secondary" },
         ]}
       />
 
       <section className="space-y-6">
-        <h2 className="font-serif text-3xl text-[--base]">ご連絡方法</h2>
+        <h2 className="font-serif text-3xl text-[--base]">お問い合わせ方法</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {contactMethods.map((method) => (
             <article key={method.title} className="section-card p-6">

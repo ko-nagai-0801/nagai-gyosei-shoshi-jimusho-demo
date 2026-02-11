@@ -5,7 +5,7 @@ import { timeline } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "永井行政書士事務所デモサイトのプロフィールと制作姿勢を紹介します。",
+  description: "永井行政書士事務所の方針と事務所概要をご案内します。",
   alternates: {
     canonical: "/about",
   },
@@ -16,35 +16,35 @@ export default function AboutPage() {
     <>
       <FullBleedHero
         eyebrow="ABOUT"
-        title="専門性と実装力を両立する制作スタンス"
-        description="相談者の不安を減らす情報提示を起点に、視覚設計とコード品質を一体で扱うことを重視しています。"
+        title="相談しやすさと正確性を両立した支援体制"
+        description="初回ヒアリングで現状と期限を整理し、必要な手続きを明確にしたうえで、申請完了まで伴走します。"
         actions={[
-          { href: "/works", label: "実績を確認する" },
+          { href: "/works", label: "支援事例を見る" },
           { href: "/contact", label: "相談を始める", style: "secondary" },
         ]}
       />
 
       <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <article className="section-card p-6 sm:p-8">
-          <h2 className="font-serif text-3xl text-[--base]">プロフィール</h2>
+          <h2 className="font-serif text-3xl text-[--base]">事務所概要</h2>
           <p className="mt-4 text-sm leading-8 text-[--ink-soft]">
-            永井行政書士事務所では、法務系サービスに必要な正確性と、Webでの伝わりやすさを同時に満たすことを目指しています。
-            このデモサイトは、採用担当者が確認しやすいように、情報設計・UI・実装品質を分かりやすく提示する構成です。
+            永井行政書士事務所では、建設業許可や在留資格関連の手続きを中心に、事業者様と個人のお客様の申請業務を支援しています。
+            相談時には、必要書類・想定スケジュール・費用感を整理し、進捗が把握しやすい形でご案内します。
           </p>
         </article>
 
         <aside className="section-card p-6 sm:p-8">
-          <h2 className="font-serif text-2xl text-[--base]">提供領域</h2>
+          <h2 className="font-serif text-2xl text-[--base]">主な対応業務</h2>
           <ul className="mt-4 space-y-3 text-sm text-[--ink-soft]">
-            <li>・Webサイト企画と情報設計</li>
-            <li>・Next.jsによるフロント実装</li>
-            <li>・公開前の品質確認と運用導線整備</li>
+            <li>・建設業許可申請（新規・更新・変更）</li>
+            <li>・在留資格関連手続き（企業向け支援含む）</li>
+            <li>・法人設立後の各種届出、許認可準備</li>
           </ul>
         </aside>
       </section>
 
       <section className="space-y-6">
-        <h2 className="font-serif text-3xl text-[--base]">取り組みの変遷</h2>
+        <h2 className="font-serif text-3xl text-[--base]">事務所沿革</h2>
         <ol className="space-y-4">
           {timeline.map((item) => (
             <li

@@ -22,12 +22,12 @@ export default function OpenGraphImage() {
         }}
       >
         <p style={{ fontSize: 28, letterSpacing: "0.14em", opacity: 0.9 }}>
-          NAGAI OFFICE DEMO
+          NAGAI GYOUSEI SHOSHI OFFICE
         </p>
-        <h1 style={{ marginTop: 24, fontSize: 72, lineHeight: 1.25 }}>
+        <h1 style={{ marginTop: 24, fontSize: 64, lineHeight: 1.25 }}>
           永井行政書士事務所
           <br />
-          ポートフォリオデモサイト
+          建設業許可・在留資格・法人設立
         </h1>
       </div>
     ),

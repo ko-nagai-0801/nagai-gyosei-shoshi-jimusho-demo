@@ -22,12 +22,12 @@ export default function TwitterImage() {
         }}
       >
         <p style={{ fontSize: 24, letterSpacing: "0.12em", opacity: 0.9 }}>
-          UI / IMPLEMENTATION SHOWCASE
+          NAGAI GYOUSEI SHOSHI OFFICE
         </p>
-        <h1 style={{ marginTop: 20, fontSize: 64, lineHeight: 1.3 }}>
+        <h1 style={{ marginTop: 20, fontSize: 60, lineHeight: 1.3 }}>
           永井行政書士事務所
           <br />
-          Demo Site
+          申請手続きを丁寧にサポート
         </h1>
       </div>
     ),

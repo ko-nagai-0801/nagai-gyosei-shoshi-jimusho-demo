@@ -26,9 +26,9 @@ export function ContactForm() {
 
   return (
     <div className="rounded-2xl border border-[--line] bg-[--card] p-6 shadow-sm sm:p-8">
-      <h2 className="font-serif text-2xl text-[--base]">お問い合わせフォーム（デモ）</h2>
+      <h2 className="font-serif text-2xl text-[--base]">お問い合わせフォーム</h2>
       <p className="mt-2 text-sm text-[--ink-soft]">
-        送信フロー確認のためのデモ実装です。入力後に送信完了メッセージを表示します。
+        ご相談内容を確認のうえ、2営業日以内を目安に担当者よりご連絡します。
       </p>
 
       <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
@@ -56,7 +56,7 @@ export function ContactForm() {
               setForm((prev) => ({ ...prev, email: event.target.value }))
             }
             className="w-full rounded-xl border border-[--line] bg-white px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[--base] focus:ring-2 focus:ring-[--base-soft]"
-            placeholder="example@example.com"
+            placeholder="例: info@example.co.jp"
           />
         </label>
 
@@ -70,7 +70,7 @@ export function ContactForm() {
               setForm((prev) => ({ ...prev, message: event.target.value }))
             }
             className="w-full rounded-xl border border-[--line] bg-white px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[--base] focus:ring-2 focus:ring-[--base-soft]"
-            placeholder="ご相談内容を入力してください"
+            placeholder="ご相談内容をご記入ください"
           />
         </label>
 
@@ -84,7 +84,7 @@ export function ContactForm() {
 
       {submitted && (
         <p className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
-          送信ありがとうございます。デモ環境のため実送信は行われませんが、導線確認は完了です。
+          お問い合わせを受け付けました。内容を確認のうえ担当者よりご連絡します。
         </p>
       )}
     </div>

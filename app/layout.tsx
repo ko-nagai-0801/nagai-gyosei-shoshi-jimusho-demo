@@ -19,7 +19,7 @@ const notoSerif = Noto_Serif_JP({
 
 const siteName = "永井行政書士事務所";
 const siteDescription =
-  "採用担当者とクライアントに向けて、UI設計力と実装品質を提示するポートフォリオ用デモサイト。";
+  "建設業許可・在留資格・法人設立などの手続きを、初回相談から申請完了まで丁寧にサポートします。";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   "https://nagai-gyosei-shoshi-jimusho-demo.vercel.app";
@@ -27,22 +27,16 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | デモサイト`,
+    default: `${siteName} | 申請手続きサポート`,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-  keywords: [
-    "行政書士",
-    "ポートフォリオ",
-    "Next.js",
-    "TypeScript",
-    "UIデザイン",
-  ],
+  keywords: ["行政書士", "建設業許可", "在留資格", "法人設立", "各種届出"],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: `${siteName} | デモサイト`,
+    title: `${siteName} | 申請手続きサポート`,
     description: siteDescription,
     url: siteUrl,
     siteName,
@@ -59,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | デモサイト`,
+    title: `${siteName} | 申請手続きサポート`,
     description: siteDescription,
     images: ["/twitter-image"],
   },
@@ -81,7 +75,7 @@ export default function RootLayout({
       >
         <div className="min-h-dvh bg-[--surface] text-[--ink]">
           <SiteHeader />
-          <main className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-16 pt-6 md:px-8 md:pt-8">
+          <main className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-16 pt-0 md:px-8">
             {children}
           </main>
           <SiteFooter />
