@@ -22,7 +22,7 @@ export function FullBleedHero({
   return (
     <section className="hero-full-bleed relative overflow-hidden rounded-none text-white">
       <div className="absolute inset-0 bg-[linear-gradient(120deg,_#0a2740_0%,_#0f3658_45%,_#1f517c_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(193,138,54,0.32),_transparent_52%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(143,94,30,0.36),_transparent_52%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(0,0,0,0.28)_0%,_rgba(0,0,0,0.45)_100%)]" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-20 md:px-8 md:py-24">

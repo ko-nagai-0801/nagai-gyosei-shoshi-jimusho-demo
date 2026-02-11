@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { FullBleedHero } from "@/components/full-bleed-hero";
-import { strengths, works } from "@/lib/site-content";
+import { officeQuickFacts, strengths, works } from "@/lib/site-content";
 
 export default function HomePage() {
   return (
@@ -15,6 +15,23 @@ export default function HomePage() {
           { href: "/contact", label: "無料相談を予約する", style: "secondary" },
         ]}
       />
+
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[--accent]">GUIDE</p>
+          <h2 className="font-serif text-3xl text-[--base]">ご相談前のご案内</h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {officeQuickFacts.map((fact) => (
+            <article key={fact.label} className="section-card p-6">
+              <p className="text-xs font-semibold tracking-[0.12em] text-[--accent]">{fact.label}</p>
+              <h3 className="mt-2 font-serif text-xl text-[--base]">{fact.value}</h3>
+              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{fact.note}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="space-y-6">
         <div className="space-y-2">

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { ContactForm } from "@/components/contact-form";
 import { FullBleedHero } from "@/components/full-bleed-hero";
-import { contactMethods } from "@/lib/site-content";
+import { contactMethods, officeQuickFacts } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -39,6 +39,22 @@ export default function ContactPage() {
               >
                 {method.value}
               </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[--accent]">INFORMATION</p>
+          <h2 className="font-serif text-3xl text-[--base]">対応エリア・営業時間・相談料</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {officeQuickFacts.map((fact) => (
+            <article key={fact.label} className="section-card p-6">
+              <p className="text-xs font-semibold tracking-[0.12em] text-[--accent]">{fact.label}</p>
+              <h3 className="mt-2 font-serif text-xl text-[--base]">{fact.value}</h3>
+              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{fact.note}</p>
             </article>
           ))}
         </div>

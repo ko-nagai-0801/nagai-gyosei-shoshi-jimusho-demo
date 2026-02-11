@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { FullBleedHero } from "@/components/full-bleed-hero";
-import { timeline } from "@/lib/site-content";
+import { feeGuides, timeline } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -41,6 +41,22 @@ export default function AboutPage() {
             <li>・法人設立後の各種届出、許認可準備</li>
           </ul>
         </aside>
+      </section>
+
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[--accent]">FEE GUIDE</p>
+          <h2 className="font-serif text-3xl text-[--base]">料金案内（目安）</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {feeGuides.map((guide) => (
+            <article key={guide.item} className="section-card p-6">
+              <p className="text-xs font-semibold tracking-[0.12em] text-[--accent]">{guide.item}</p>
+              <h3 className="mt-2 font-serif text-xl text-[--base]">{guide.fee}</h3>
+              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{guide.note}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="space-y-6">

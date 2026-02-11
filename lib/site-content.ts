@@ -17,6 +17,18 @@ export type TimelineItem = {
   detail: string;
 };
 
+export type QuickFact = {
+  label: string;
+  value: string;
+  note: string;
+};
+
+export type FeeGuide = {
+  item: string;
+  fee: string;
+  note: string;
+};
+
 export const navLinks: NavLink[] = [
   { href: "/", label: "ホーム" },
   { href: "/works", label: "取扱業務" },
@@ -36,6 +48,42 @@ export const strengths = [
   {
     title: "期限管理と丁寧な説明",
     body: "更新時期や提出期限を見据えたスケジュール管理を徹底し、専門用語はわかりやすくご案内します。",
+  },
+];
+
+export const officeQuickFacts: QuickFact[] = [
+  {
+    label: "対応エリア",
+    value: "東京都・神奈川県・埼玉県・千葉県",
+    note: "オンライン相談は全国対応可能です。",
+  },
+  {
+    label: "営業時間",
+    value: "平日 9:00-18:00",
+    note: "土日祝は事前予約で対応します。",
+  },
+  {
+    label: "初回相談料",
+    value: "30分無料",
+    note: "以降 30分 5,500円（税込）を目安にご案内します。",
+  },
+];
+
+export const feeGuides: FeeGuide[] = [
+  {
+    item: "建設業許可（新規）",
+    fee: "132,000円（税込）〜",
+    note: "別途、行政庁への申請手数料等の法定費用がかかります。",
+  },
+  {
+    item: "在留資格更新申請",
+    fee: "55,000円（税込）〜",
+    note: "案件内容・必要資料の量に応じて個別にお見積もりします。",
+  },
+  {
+    item: "法人設立後の届出支援",
+    fee: "88,000円（税込）〜",
+    note: "設立形態・必要手続きに応じて対応範囲を調整します。",
   },
 ];
 
