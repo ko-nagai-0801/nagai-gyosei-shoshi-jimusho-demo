@@ -27,15 +27,15 @@ export default function ContactPage() {
       />
 
       <section className="space-y-6">
-        <h2 className="font-serif text-3xl text-[--base]">お問い合わせ方法</h2>
+        <h2 className="font-serif text-3xl text-[var(--base)]">お問い合わせ方法</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {contactMethods.map((method) => (
             <article key={method.title} className="section-card p-6">
-              <h3 className="font-serif text-xl text-[--base]">{method.title}</h3>
-              <p className="mt-2 text-sm text-[--ink-soft]">{method.detail}</p>
+              <h3 className="font-serif text-xl text-[var(--base)]">{method.title}</h3>
+              <p className="mt-2 text-sm text-[var(--ink-soft)]">{method.detail}</p>
               <Link
                 href={method.href}
-                className="mt-4 inline-flex rounded-full border border-[--base] px-4 py-2 text-sm font-semibold text-[--base] transition hover:bg-[--base] hover:text-white"
+                className="mt-4 inline-flex rounded-full border border-[var(--base)] px-4 py-2 text-sm font-semibold text-[var(--base)] transition hover:bg-[var(--base)] hover:text-white"
               >
                 {method.value}
               </Link>
@@ -46,15 +46,15 @@ export default function ContactPage() {
 
       <section className="space-y-6">
         <div className="space-y-2">
-          <p className="text-xs font-semibold tracking-[0.14em] text-[--accent]">INFORMATION</p>
-          <h2 className="font-serif text-3xl text-[--base]">対応エリア・営業時間・相談料</h2>
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">INFORMATION</p>
+          <h2 className="font-serif text-3xl text-[var(--base)]">対応エリア・営業時間・相談料</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {officeQuickFacts.map((fact) => (
             <article key={fact.label} className="section-card p-6">
-              <p className="text-xs font-semibold tracking-[0.12em] text-[--accent]">{fact.label}</p>
-              <h3 className="mt-2 font-serif text-xl text-[--base]">{fact.value}</h3>
-              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{fact.note}</p>
+              <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">{fact.label}</p>
+              <h3 className="mt-2 font-serif text-xl text-[var(--base)]">{fact.value}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--ink-soft)]">{fact.note}</p>
             </article>
           ))}
         </div>

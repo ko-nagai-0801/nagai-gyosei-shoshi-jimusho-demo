@@ -42,6 +42,18 @@ export type PricingOption = {
   note: string;
 };
 
+export type PaymentTerm = {
+  label: string;
+  value: string;
+  detail: string;
+};
+
+export type CancellationPolicy = {
+  phase: string;
+  fee: string;
+  note: string;
+};
+
 export const navLinks: NavLink[] = [
   { href: "/", label: "ホーム" },
   { href: "/works", label: "取扱業務" },
@@ -163,6 +175,41 @@ export const pricingOptions: PricingOption[] = [
     note: "移動時間・距離に応じて交通費実費をお願いする場合があります。",
   },
 ];
+
+export const paymentTerms: PaymentTerm[] = [
+  {
+    label: "着手金",
+    value: "見積総額の50%",
+    detail:
+      "ご契約後5営業日以内のお支払いをお願いしています。入金確認後に正式着手します。",
+  },
+  {
+    label: "残金",
+    value: "残額50%",
+    detail:
+      "申請書類の最終確認完了後、提出前日までにお支払いください。分割希望は事前にご相談ください。",
+  },
+];
+
+export const cancellationPolicies: CancellationPolicy[] = [
+  {
+    phase: "着手前のキャンセル",
+    fee: "無料",
+    note: "ヒアリング実施前のキャンセルは費用をいただきません。",
+  },
+  {
+    phase: "着手後・書類作成前",
+    fee: "見積総額の30%",
+    note: "要件確認、進行計画作成まで実施した場合に適用します。",
+  },
+  {
+    phase: "書類作成開始後",
+    fee: "見積総額の50%〜100%",
+    note: "進捗率に応じて精算し、作成済み成果物をお渡しします。",
+  },
+];
+
+export const pricingRevisedAt = "2026年2月11日";
 
 export const pricingDisclaimers: string[] = [
   "本料金は目安であり、案件の難易度・資料状況・申請区分により変動します。",

@@ -25,19 +25,19 @@ export default function WorksPage() {
       />
 
       <section className="space-y-6">
-        <h2 className="font-serif text-3xl text-[--base]">支援事例</h2>
+        <h2 className="font-serif text-3xl text-[var(--base)]">支援事例</h2>
         <div className="grid gap-5 md:grid-cols-2">
           {works.map((work) => (
             <article key={work.title} className="section-card p-6">
-              <p className="text-xs tracking-[0.12em] text-[--ink-soft]">{work.term}</p>
-              <h3 className="mt-2 font-serif text-2xl text-[--base]">{work.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{work.summary}</p>
-              <p className="mt-4 text-sm font-semibold text-[--ink]">対応範囲: {work.role}</p>
+              <p className="text-xs tracking-[0.12em] text-[var(--ink-soft)]">{work.term}</p>
+              <h3 className="mt-2 font-serif text-2xl text-[var(--base)]">{work.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--ink-soft)]">{work.summary}</p>
+              <p className="mt-4 text-sm font-semibold text-[var(--ink)]">対応範囲: {work.role}</p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {work.tags.map((tag) => (
                   <li
                     key={tag}
-                    className="rounded-full border border-[--line] bg-[--base-soft] px-3 py-1 text-xs font-medium text-[--base]"
+                    className="rounded-full border border-[var(--line)] bg-[var(--base-soft)] px-3 py-1 text-xs font-medium text-[var(--base)]"
                   >
                     {tag}
                   </li>

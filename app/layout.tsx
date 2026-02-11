@@ -73,7 +73,7 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} ${notoSerif.variable} antialiased`}
       >
-        <div className="min-h-dvh bg-[--surface] text-[--ink]">
+        <div className="min-h-dvh bg-[var(--surface)] text-[var(--ink)]">
           <SiteHeader />
           <main className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-16 pt-0 md:px-8">
             {children}

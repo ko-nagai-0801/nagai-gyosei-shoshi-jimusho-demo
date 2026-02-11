@@ -26,14 +26,14 @@ export function FullBleedHero({
       <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(0,0,0,0.28)_0%,_rgba(0,0,0,0.45)_100%)]" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-20 md:px-8 md:py-24">
-        <div className="max-w-4xl rounded-2xl border border-white/15 bg-black/20 px-5 py-6 shadow-[0_16px_36px_rgba(0,0,0,0.26)] backdrop-blur-[2px] md:px-8 md:py-8">
+        <div className="max-w-4xl rounded-2xl border border-white/20 bg-black/30 px-5 py-6 shadow-[0_16px_36px_rgba(0,0,0,0.32)] backdrop-blur-[2px] md:px-8 md:py-8">
           <p className="w-fit rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs tracking-[0.14em] text-white/95">
             {eyebrow}
           </p>
           <h1 className="mt-4 max-w-3xl font-serif text-3xl leading-tight drop-shadow-[0_4px_14px_rgba(0,0,0,0.42)] sm:text-4xl md:text-5xl">
             {title}
           </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] sm:text-base">
+          <p className="mt-4 max-w-2xl text-base leading-8 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
             {description}
           </p>
 
@@ -45,7 +45,7 @@ export function FullBleedHero({
                 className={
                   action.style === "secondary"
                     ? "rounded-full border border-white/65 bg-black/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12"
-                    : "rounded-full bg-[--accent] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95"
+                    : "rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95"
                 }
               >
                 {action.label}

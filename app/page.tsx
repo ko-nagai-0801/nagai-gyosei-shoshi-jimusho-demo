@@ -18,23 +18,23 @@ export default function HomePage() {
 
       <section className="space-y-6">
         <div className="space-y-2">
-          <p className="text-xs font-semibold tracking-[0.14em] text-[--accent]">GUIDE</p>
-          <h2 className="font-serif text-3xl text-[--base]">ご相談前のご案内</h2>
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">GUIDE</p>
+          <h2 className="font-serif text-3xl text-[var(--base)]">ご相談前のご案内</h2>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           {officeQuickFacts.map((fact) => (
             <article key={fact.label} className="section-card p-6">
-              <p className="text-xs font-semibold tracking-[0.12em] text-[--accent]">{fact.label}</p>
-              <h3 className="mt-2 font-serif text-xl text-[--base]">{fact.value}</h3>
-              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{fact.note}</p>
+              <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">{fact.label}</p>
+              <h3 className="mt-2 font-serif text-xl text-[var(--base)]">{fact.value}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--ink-soft)]">{fact.note}</p>
             </article>
           ))}
         </div>
 
         <Link
           href="/pricing"
-          className="inline-flex w-fit rounded-full border border-[--base] px-5 py-2 text-sm font-semibold text-[--base] transition hover:bg-[--base] hover:text-white"
+          className="inline-flex w-fit rounded-full border border-[var(--base)] px-5 py-2 text-sm font-semibold text-[var(--base)] transition hover:bg-[var(--base)] hover:text-white"
         >
           詳細な料金表を見る
         </Link>
@@ -42,15 +42,15 @@ export default function HomePage() {
 
       <section className="space-y-6">
         <div className="space-y-2">
-          <p className="text-xs font-semibold tracking-[0.14em] text-[--accent]">STRENGTHS</p>
-          <h2 className="font-serif text-3xl text-[--base]">当事務所の強み</h2>
+          <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">STRENGTHS</p>
+          <h2 className="font-serif text-3xl text-[var(--base)]">当事務所の強み</h2>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           {strengths.map((strength) => (
             <article key={strength.title} className="section-card p-6">
-              <h3 className="font-serif text-xl text-[--base]">{strength.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{strength.body}</p>
+              <h3 className="font-serif text-xl text-[var(--base)]">{strength.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--ink-soft)]">{strength.body}</p>
             </article>
           ))}
         </div>
@@ -59,12 +59,12 @@ export default function HomePage() {
       <section className="space-y-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-2">
-            <p className="text-xs font-semibold tracking-[0.14em] text-[--accent]">WORKS PREVIEW</p>
-            <h2 className="font-serif text-3xl text-[--base]">主な支援事例</h2>
+            <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">WORKS PREVIEW</p>
+            <h2 className="font-serif text-3xl text-[var(--base)]">主な支援事例</h2>
           </div>
           <Link
             href="/works"
-            className="w-fit rounded-full border border-[--base] px-5 py-2 text-sm font-semibold text-[--base] transition hover:bg-[--base] hover:text-white"
+            className="w-fit rounded-full border border-[var(--base)] px-5 py-2 text-sm font-semibold text-[var(--base)] transition hover:bg-[var(--base)] hover:text-white"
           >
             すべての事例を見る
           </Link>
@@ -73,10 +73,10 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-2">
           {works.slice(0, 2).map((work) => (
             <article key={work.title} className="section-card p-6">
-              <p className="text-xs tracking-[0.12em] text-[--ink-soft]">{work.term}</p>
-              <h3 className="mt-2 font-serif text-xl text-[--base]">{work.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[--ink-soft]">{work.summary}</p>
-              <p className="mt-4 text-sm font-semibold text-[--ink]">対応内容: {work.role}</p>
+              <p className="text-xs tracking-[0.12em] text-[var(--ink-soft)]">{work.term}</p>
+              <h3 className="mt-2 font-serif text-xl text-[var(--base)]">{work.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--ink-soft)]">{work.summary}</p>
+              <p className="mt-4 text-sm font-semibold text-[var(--ink)]">対応内容: {work.role}</p>
             </article>
           ))}
         </div>
