@@ -61,6 +61,7 @@ export type InvoiceSampleLine = {
 
 export type InvoiceSampleMeta = {
   fileName: string;
+  downloadHref: string;
   format: string;
   size: string;
   note: string;
@@ -243,9 +244,10 @@ export const invoiceSampleLines: InvoiceSampleLine[] = [
 
 export const invoiceSampleMeta: InvoiceSampleMeta = {
   fileName: "invoice-sample-nagai-office.pdf",
+  downloadHref: "/documents/invoice-sample.pdf",
   format: "PDF",
   size: "約220KB（想定）",
-  note: "デザイン確認用の表示です。実ファイルのダウンロードはできません。",
+  note: "こちらはサンプル請求書です。記載内容はダミーであり、実案件には利用できません。",
 };
 
 export const paymentMethods: PaymentMethod[] = [

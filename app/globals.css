@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --base: #0f3658;
-  --base-soft: #d2dfeb;
-  --accent: #8f5e1e;
-  --surface: #f3f5f7;
-  --card: #ffffff;
-  --ink: #1f2d3d;
-  --ink-soft: #3e5165;
-  --line: #bac9d8;
+  --base: #2e5a45;
+  --base-strong: #1f3f31;
+  --base-soft: #e5f0e8;
+  --accent: #d47a2a;
+  --surface: #f8f3eb;
+  --card: #fffdf8;
+  --ink: #2f2a24;
+  --ink-soft: #5a5148;
+  --line: #d8ccb8;
 }
 
 @theme inline {
   --color-base: var(--base);
+  --color-base-strong: var(--base-strong);
   --color-base-soft: var(--base-soft);
   --color-accent: var(--accent);
   --color-surface: var(--surface);
@@ -30,7 +32,10 @@
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #f8fafc 0%, var(--surface) 50%);
+  background:
+    radial-gradient(circle at 10% -10%, #fff0d8 0%, transparent 32%),
+    radial-gradient(circle at 90% 0%, #f5ead7 0%, transparent 28%),
+    linear-gradient(180deg, #fffdf8 0%, var(--surface) 65%);
   color: var(--ink);
   font-family: var(--font-noto-sans-jp), sans-serif;
 }
@@ -51,6 +56,6 @@ a {
 .section-card {
   border: 1px solid var(--line);
   background: var(--card);
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(15, 54, 88, 0.06);
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 22px rgba(69, 56, 39, 0.08);
 }

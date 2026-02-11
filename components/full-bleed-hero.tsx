@@ -20,20 +20,20 @@ export function FullBleedHero({
   actions,
 }: FullBleedHeroProps) {
   return (
-    <section className="hero-full-bleed relative overflow-hidden rounded-none text-white">
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,_#0a2740_0%,_#0f3658_45%,_#1f517c_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(143,94,30,0.36),_transparent_52%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(0,0,0,0.28)_0%,_rgba(0,0,0,0.45)_100%)]" />
+    <section className="hero-full-bleed relative overflow-hidden rounded-none text-[var(--ink)]">
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,_#f3ead9_0%,_#f9f5ee_45%,_#efe5d3_100%)]" />
+      <div className="absolute -left-28 top-8 h-72 w-72 rounded-full bg-[rgba(212,122,42,0.2)] blur-3xl" />
+      <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-[rgba(46,90,69,0.2)] blur-3xl" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-20 md:px-8 md:py-24">
-        <div className="max-w-4xl rounded-2xl border border-white/20 bg-black/30 px-5 py-6 shadow-[0_16px_36px_rgba(0,0,0,0.32)] backdrop-blur-[2px] md:px-8 md:py-8">
-          <p className="w-fit rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs tracking-[0.14em] text-white/95">
+        <div className="max-w-4xl rounded-3xl border border-[var(--line)] bg-[rgba(255,253,248,0.9)] px-5 py-6 shadow-[0_12px_28px_rgba(80,62,40,0.13)] backdrop-blur-[1px] md:px-8 md:py-8">
+          <p className="w-fit rounded-full border border-[var(--line)] bg-[var(--base-soft)] px-4 py-1 text-xs font-semibold tracking-[0.14em] text-[var(--base)]">
             {eyebrow}
           </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-3xl leading-tight drop-shadow-[0_4px_14px_rgba(0,0,0,0.42)] sm:text-4xl md:text-5xl">
+          <h1 className="mt-4 max-w-3xl font-serif text-3xl leading-tight text-[var(--base-strong)] sm:text-4xl md:text-5xl">
             {title}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-8 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+          <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--ink-soft)]">
             {description}
           </p>
 
@@ -44,8 +44,8 @@ export function FullBleedHero({
                 href={action.href}
                 className={
                   action.style === "secondary"
-                    ? "rounded-full border border-white/65 bg-black/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/12"
-                    : "rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95"
+                    ? "rounded-full border border-[var(--base)] px-5 py-3 text-sm font-semibold text-[var(--base)] transition hover:bg-[var(--base-soft)]"
+                    : "rounded-full bg-[var(--base)] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95"
                 }
               >
                 {action.label}

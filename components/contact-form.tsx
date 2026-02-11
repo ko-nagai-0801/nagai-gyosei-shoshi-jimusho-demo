@@ -25,8 +25,8 @@ export function ContactForm() {
   };
 
   return (
-    <div className="rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-sm sm:p-8">
-      <h2 className="font-serif text-2xl text-[var(--base)]">お問い合わせフォーム</h2>
+    <div className="section-card p-6 sm:p-8">
+      <h2 className="font-serif text-2xl text-[var(--base-strong)]">お問い合わせフォーム</h2>
       <p className="mt-2 text-sm text-[var(--ink-soft)]">
         ご相談内容を確認のうえ、2営業日以内を目安に担当者よりご連絡します。
       </p>
@@ -41,7 +41,7 @@ export function ContactForm() {
             onChange={(event) =>
               setForm((prev) => ({ ...prev, name: event.target.value }))
             }
-            className="w-full rounded-xl border border-[var(--line)] bg-white px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[var(--base)] focus:ring-2 focus:ring-[var(--base-soft)]"
+            className="w-full rounded-xl border border-[var(--line)] bg-[#fffdf8] px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[var(--base)] focus:ring-2 focus:ring-[var(--base-soft)]"
             placeholder="例: 永井 太郎"
           />
         </label>
@@ -55,7 +55,7 @@ export function ContactForm() {
             onChange={(event) =>
               setForm((prev) => ({ ...prev, email: event.target.value }))
             }
-            className="w-full rounded-xl border border-[var(--line)] bg-white px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[var(--base)] focus:ring-2 focus:ring-[var(--base-soft)]"
+            className="w-full rounded-xl border border-[var(--line)] bg-[#fffdf8] px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[var(--base)] focus:ring-2 focus:ring-[var(--base-soft)]"
             placeholder="例: info@example.co.jp"
           />
         </label>
@@ -69,14 +69,14 @@ export function ContactForm() {
             onChange={(event) =>
               setForm((prev) => ({ ...prev, message: event.target.value }))
             }
-            className="w-full rounded-xl border border-[var(--line)] bg-white px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[var(--base)] focus:ring-2 focus:ring-[var(--base-soft)]"
+            className="w-full rounded-xl border border-[var(--line)] bg-[#fffdf8] px-4 py-3 text-sm outline-none ring-offset-2 transition focus:border-[var(--base)] focus:ring-2 focus:ring-[var(--base-soft)]"
             placeholder="ご相談内容をご記入ください"
           />
         </label>
 
         <button
           type="submit"
-          className="rounded-full bg-[var(--base)] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-95"
+          className="rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-95"
         >
           送信する
         </button>

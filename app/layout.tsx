@@ -19,7 +19,7 @@ const notoSerif = Noto_Serif_JP({
 
 const siteName = "永井行政書士事務所";
 const siteDescription =
-  "建設業許可・在留資格・法人設立などの手続きを、初回相談から申請完了まで丁寧にサポートします。";
+  "町の法律屋として、建設業許可・在留資格・法人設立などの手続きを、初回相談から申請完了まで丁寧にサポートします。";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   "https://nagai-gyosei-shoshi-jimusho-demo.vercel.app";
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-  keywords: ["行政書士", "建設業許可", "在留資格", "法人設立", "各種届出"],
+  keywords: ["行政書士", "町の法律屋", "建設業許可", "在留資格", "法人設立", "各種届出"],
   alternates: {
     canonical: "/",
   },

@@ -18,8 +18,8 @@ export default function ContactPage() {
     <>
       <FullBleedHero
         eyebrow="CONTACT"
-        title="ご相談内容に応じた連絡方法をご用意しています"
-        description="メール・電話・オンライン相談の3つの窓口からご連絡いただけます。まずは現在のお悩みをお聞かせください。"
+        title="小さな疑問でも、まずはお気軽にご相談ください"
+        description="メール・電話・オンライン相談の3つの窓口からご連絡いただけます。状況を伺い、必要な手続きをわかりやすくご案内します。"
         actions={[
           { href: "#contact-form", label: "フォームへ進む" },
           { href: "/pricing", label: "料金表を確認する", style: "secondary" },
@@ -27,11 +27,11 @@ export default function ContactPage() {
       />
 
       <section className="space-y-6">
-        <h2 className="font-serif text-3xl text-[var(--base)]">お問い合わせ方法</h2>
+        <h2 className="font-serif text-3xl text-[var(--base-strong)]">お問い合わせ方法</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {contactMethods.map((method) => (
             <article key={method.title} className="section-card p-6">
-              <h3 className="font-serif text-xl text-[var(--base)]">{method.title}</h3>
+              <h3 className="font-serif text-xl text-[var(--base-strong)]">{method.title}</h3>
               <p className="mt-2 text-sm text-[var(--ink-soft)]">{method.detail}</p>
               <Link
                 href={method.href}
@@ -47,13 +47,13 @@ export default function ContactPage() {
       <section className="space-y-6">
         <div className="space-y-2">
           <p className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)]">INFORMATION</p>
-          <h2 className="font-serif text-3xl text-[var(--base)]">対応エリア・営業時間・相談料</h2>
+          <h2 className="font-serif text-3xl text-[var(--base-strong)]">対応エリア・営業時間・相談料</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {officeQuickFacts.map((fact) => (
             <article key={fact.label} className="section-card p-6">
               <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">{fact.label}</p>
-              <h3 className="mt-2 font-serif text-xl text-[var(--base)]">{fact.value}</h3>
+              <h3 className="mt-2 font-serif text-xl text-[var(--base-strong)]">{fact.value}</h3>
               <p className="mt-3 text-sm leading-7 text-[var(--ink-soft)]">{fact.note}</p>
             </article>
           ))}
