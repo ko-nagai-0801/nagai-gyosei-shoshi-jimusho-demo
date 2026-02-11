@@ -59,6 +59,13 @@ export type InvoiceSampleLine = {
   value: string;
 };
 
+export type InvoiceSampleMeta = {
+  fileName: string;
+  format: string;
+  size: string;
+  note: string;
+};
+
 export type PaymentMethod = {
   method: string;
   detail: string;
@@ -233,6 +240,13 @@ export const invoiceSampleLines: InvoiceSampleLine[] = [
   { label: "支払期限", value: "2026年2月25日" },
   { label: "支払先", value: "〇〇銀行 〇〇支店 普通 1234567 ナガイタロウ" },
 ];
+
+export const invoiceSampleMeta: InvoiceSampleMeta = {
+  fileName: "invoice-sample-nagai-office.pdf",
+  format: "PDF",
+  size: "約220KB（想定）",
+  note: "デザイン確認用の表示です。実ファイルのダウンロードはできません。",
+};
 
 export const paymentMethods: PaymentMethod[] = [
   {

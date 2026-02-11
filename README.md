@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 永井行政書士事務所 サイトデモ
 
-## Getting Started
+行政書士事務所サイトを想定した Next.js 実装デモです。  
+Home / 取扱業務 / 料金表 / 事務所案内 / お問い合わせ を公開しています。
 
-First, run the development server:
+## 公開URL
+- 本番: https://nagai-gyosei-shoshi-jimusho-demo.vercel.app
+- GitHub: https://github.com/ko-nagai-0801/nagai-gyosei-shoshi-jimusho-demo
 
+## 技術スタック
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- ESLint
+- Vercel (デプロイ)
+
+## ページ構成
+- `/` ホーム
+- `/works` 取扱業務・支援事例
+- `/pricing` 料金表（詳細条件 / オプション費用 / 支払条件 / キャンセルポリシー / 請求書サンプル / 適格請求書番号）
+- `/about` 事務所案内
+- `/contact` お問い合わせ
+
+## ローカル開発
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`http://localhost:3000` で確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 品質チェック
+```bash
+npm run lint
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 環境変数
+- `NEXT_PUBLIC_SITE_URL`
+  - OGP / canonical 生成の基準URL
+  - 未設定時は本番URL (`https://nagai-gyosei-shoshi-jimusho-demo.vercel.app`) を使用
 
-## Learn More
+## 実装メモ
+- Hero は full-bleed 実装（親の `max-width` 制約を受けない）
+- フォーム送信はUIデモ（外部送信は未接続）
+- 料金表の請求書サンプルは表示専用（実PDFは未配置）
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 開発ルール
+- コミットメッセージは日本語で記述する
+- `main` ブランチはデプロイ対象のため、lint/build通過後に反映する

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FullBleedHero } from "@/components/full-bleed-hero";
 import {
   cancellationPolicies,
+  invoiceSampleMeta,
   invoiceSampleLines,
   paymentTerms,
   paymentMethods,
@@ -123,15 +124,48 @@ export default function PricingPage() {
           <h2 className="font-serif text-3xl text-[var(--base)]">請求書サンプル</h2>
         </div>
 
-        <div className="section-card p-6 sm:p-8">
-          <dl className="grid gap-3 sm:grid-cols-2">
-            {invoiceSampleLines.map((line) => (
-              <div key={line.label} className="rounded-lg border border-[var(--line)] px-4 py-3">
-                <dt className="text-xs font-semibold tracking-[0.1em] text-[var(--accent)]">{line.label}</dt>
-                <dd className="mt-1 text-sm font-medium text-[var(--ink)]">{line.value}</dd>
-              </div>
-            ))}
-          </dl>
+        <div className="grid gap-4 lg:grid-cols-[1.4fr_0.8fr]">
+          <article className="section-card overflow-hidden">
+            <div className="flex items-center justify-between border-b border-[var(--line)] bg-[var(--base-soft)] px-5 py-3">
+              <p className="text-sm font-semibold text-[var(--base)]">{invoiceSampleMeta.fileName}</p>
+              <p className="rounded-full border border-[var(--base)] px-2 py-1 text-xs font-semibold text-[var(--base)]">
+                {invoiceSampleMeta.format}
+              </p>
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <dl className="grid gap-3 sm:grid-cols-2">
+                {invoiceSampleLines.map((line) => (
+                  <div key={line.label} className="rounded-lg border border-[var(--line)] px-4 py-3">
+                    <dt className="text-xs font-semibold tracking-[0.1em] text-[var(--accent)]">
+                      {line.label}
+                    </dt>
+                    <dd className="mt-1 text-sm font-medium text-[var(--ink)]">{line.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </article>
+
+          <aside className="section-card flex flex-col justify-between gap-5 p-6">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">DOWNLOAD STYLE</p>
+              <h3 className="font-serif text-2xl text-[var(--base)]">PDFダウンロード表示</h3>
+              <p className="text-sm leading-7 text-[var(--ink-soft)]">
+                形式: {invoiceSampleMeta.format} / サイズ: {invoiceSampleMeta.size}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              disabled
+              className="rounded-full border border-[var(--base)] bg-[var(--base)] px-5 py-3 text-sm font-semibold text-white opacity-80"
+            >
+              請求書PDFをダウンロード（サンプル）
+            </button>
+
+            <p className="text-xs leading-6 text-[var(--ink-soft)]">{invoiceSampleMeta.note}</p>
+          </aside>
         </div>
       </section>
 
