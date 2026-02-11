@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import { invoiceSampleMeta } from "@/lib/site-content";
+import { invoiceSampleMeta, qualifiedInvoiceNumber } from "@/lib/site-content";
 
 type InvoiceForm = {
   invoiceNo: string;
@@ -49,6 +49,12 @@ export function InvoiceGenerator() {
   const fee = useMemo(() => toSafeNumber(form.fee), [form.fee]);
   const tax = Math.floor(fee * 0.1);
   const total = fee + tax;
+  const paymentDestination = "〇〇銀行 〇〇支店 普通 1234567 ナガイタロウ";
+  const lineItems = [
+    { label: "業務報酬", value: formatYen(fee) },
+    { label: "消費税（10%）", value: formatYen(tax) },
+    { label: "ご請求金額", value: `${formatYen(total)}（税込）` },
+  ];
 
   const downloadHref = useMemo(() => {
     const params = new URLSearchParams({
@@ -73,46 +79,101 @@ export function InvoiceGenerator() {
           </p>
         </div>
 
-        <div className="bg-[#fffefb] p-6 sm:p-8">
-          <div className="mx-auto w-full max-w-2xl rounded-md border border-[var(--line)] bg-white p-5 shadow-[0_8px_20px_rgba(69,56,39,0.08)]">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">SAMPLE</p>
-                <h3 className="mt-1 font-serif text-xl text-[var(--base-strong)]">ご請求書</h3>
-              </div>
-              <p className="text-xs text-[var(--ink-soft)]">No. {form.invoiceNo}</p>
-            </div>
+        <div className="bg-[#fffefb] p-4 sm:p-6">
+          <div className="mx-auto max-w-[560px]">
+            <div className="aspect-[210/297] rounded-md border border-[#b8c4d5] bg-white p-4 shadow-[0_14px_30px_rgba(32,50,77,0.14)] sm:p-6">
+              <div className="flex items-start justify-between border-b border-[#c4cfde] pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#203450] text-base font-bold text-white">
+                    N
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-semibold tracking-[0.16em] text-[#546178]">NAGAI OFFICE</p>
+                    <p className="mt-1 text-[13px] font-semibold text-[#1f2d43]">永井行政書士事務所</p>
+                    <p className="mt-0.5 text-[9px] text-[#5f6d81]">東京都港区南青山0-0-0 / TEL 03-1234-5678</p>
+                  </div>
+                </div>
 
-            <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-              <div className="rounded-md border border-[var(--line)] px-3 py-2">
-                <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">宛名</dt>
-                <dd className="mt-1 text-xs font-medium text-[var(--ink)]">{form.recipient}</dd>
+                <div className="text-right">
+                  <p className="font-serif text-[23px] leading-none text-[#1f2d43] sm:text-[26px]">請求書</p>
+                  <p className="mt-2 text-[10px] text-[#44556f]">No. {form.invoiceNo}</p>
+                </div>
               </div>
-              <div className="rounded-md border border-[var(--line)] px-3 py-2">
-                <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">件名</dt>
-                <dd className="mt-1 text-xs font-medium text-[var(--ink)]">{form.subject}</dd>
+
+              <table className="mt-3 w-full border border-[#c4cfde] text-[10px] text-[#24344a]">
+                <tbody>
+                  <tr>
+                    <th className="w-[18%] border-b border-r border-[#c4cfde] bg-[#eef3fb] px-2 py-1.5 text-left font-semibold">
+                      発行日
+                    </th>
+                    <td className="w-[32%] border-b border-[#c4cfde] px-2 py-1.5">{formatDate(form.issueDate)}</td>
+                    <th className="w-[18%] border-b border-x border-[#c4cfde] bg-[#eef3fb] px-2 py-1.5 text-left font-semibold">
+                      支払期限
+                    </th>
+                    <td className="w-[32%] border-b border-[#c4cfde] px-2 py-1.5">{formatDate(form.dueDate)}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div className="mt-3 border border-[#c4cfde]">
+                <p className="border-b border-[#c4cfde] bg-[#f9fbff] px-2 py-1.5 text-[9px] font-semibold tracking-[0.08em] text-[#495975]">
+                  請求先
+                </p>
+                <p className="px-2 py-2 text-[11px] font-medium text-[#1f2d43]">{form.recipient}</p>
               </div>
-              <div className="rounded-md border border-[var(--line)] px-3 py-2">
-                <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">発行日</dt>
-                <dd className="mt-1 text-xs font-medium text-[var(--ink)]">{formatDate(form.issueDate)}</dd>
+
+              <div className="mt-3 grid grid-cols-[68px_1fr] border border-[#c4cfde] text-[10px]">
+                <p className="border-r border-[#c4cfde] bg-[#f9fbff] px-2 py-2 font-semibold text-[#495975]">件名</p>
+                <p className="px-2 py-2 text-[#24344a]">{form.subject}</p>
               </div>
-              <div className="rounded-md border border-[var(--line)] px-3 py-2">
-                <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">支払期限</dt>
-                <dd className="mt-1 text-xs font-medium text-[var(--ink)]">{formatDate(form.dueDate)}</dd>
+
+              <table className="mt-4 w-full border border-[#b6c3d6] text-[10px] text-[#24344a]">
+                <thead className="bg-[#e9f1fb] text-[#233a5b]">
+                  <tr>
+                    <th className="w-[68%] border-b border-r border-[#b6c3d6] px-2 py-2 text-left font-semibold">項目</th>
+                    <th className="w-[32%] border-b border-[#b6c3d6] px-2 py-2 text-right font-semibold">金額</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {lineItems.map((item, index) => {
+                    const isTotal = index === lineItems.length - 1;
+                    return (
+                      <tr key={item.label} className={isTotal ? "bg-[#f7fbff]" : "bg-white"}>
+                        <td
+                          className={`border-t border-r border-[#c4cfde] px-2 py-2 ${isTotal ? "font-semibold text-[#1f2d43]" : ""}`}
+                        >
+                          {item.label}
+                        </td>
+                        <td
+                          className={`border-t border-[#c4cfde] px-2 py-2 text-right ${isTotal ? "font-semibold text-[#1f2d43]" : ""}`}
+                        >
+                          {item.value}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+
+              <div className="mt-4 space-y-1.5 text-[9px] text-[#4f5f74]">
+                <div className="grid grid-cols-[88px_1fr] border border-[#c4cfde]">
+                  <p className="border-r border-[#c4cfde] bg-[#f9fbff] px-2 py-1.5 font-semibold">支払方法</p>
+                  <p className="px-2 py-1.5">銀行振込（振込手数料はご負担をお願いします）</p>
+                </div>
+                <div className="grid grid-cols-[88px_1fr] border border-[#c4cfde]">
+                  <p className="border-r border-[#c4cfde] bg-[#f9fbff] px-2 py-1.5 font-semibold">振込先</p>
+                  <p className="px-2 py-1.5">{paymentDestination}</p>
+                </div>
+                <div className="grid grid-cols-[88px_1fr] border border-[#c4cfde]">
+                  <p className="border-r border-[#c4cfde] bg-[#f9fbff] px-2 py-1.5 font-semibold">登録番号</p>
+                  <p className="px-2 py-1.5">{qualifiedInvoiceNumber}</p>
+                </div>
               </div>
-              <div className="rounded-md border border-[var(--line)] px-3 py-2">
-                <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">業務報酬</dt>
-                <dd className="mt-1 text-xs font-medium text-[var(--ink)]">{formatYen(fee)}</dd>
-              </div>
-              <div className="rounded-md border border-[var(--line)] px-3 py-2">
-                <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">消費税（10%）</dt>
-                <dd className="mt-1 text-xs font-medium text-[var(--ink)]">{formatYen(tax)}</dd>
-              </div>
-              <div className="rounded-md border border-[var(--line)] px-3 py-2 sm:col-span-2">
-                <dt className="text-[11px] font-semibold tracking-[0.08em] text-[var(--accent)]">ご請求金額</dt>
-                <dd className="mt-1 text-sm font-semibold text-[var(--base-strong)]">{formatYen(total)}（税込）</dd>
-              </div>
-            </dl>
+
+              <p className="mt-3 text-[8px] leading-[1.55] text-[#61728a]">
+                本プレビューはデモ用の擬似請求書です。実際のご契約・税務処理には利用できません。
+              </p>
+            </div>
           </div>
         </div>
       </article>
@@ -122,7 +183,7 @@ export function InvoiceGenerator() {
           <p className="text-xs font-semibold tracking-[0.12em] text-[var(--accent)]">PSEUDO GENERATOR</p>
           <h3 className="font-serif text-2xl text-[var(--base-strong)]">入力連動でPDF生成</h3>
           <p className="text-sm leading-7 text-[var(--ink-soft)]">
-            ここで入力した内容を反映した日本語PDFを、その場でダウンロードできます。
+            ここで入力した内容を反映し、左のプレビューと同じ構成で日本語PDFをダウンロードできます。
           </p>
         </div>
 

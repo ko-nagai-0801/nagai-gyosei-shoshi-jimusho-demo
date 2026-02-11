@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { navLinks } from "@/lib/site-content";
 
@@ -10,8 +10,34 @@ export function SiteHeader() {
 
   const primaryLinks = navLinks.filter((link) => link.href !== "/contact");
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalOverflow;
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [menuOpen]);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[#fffaf3]/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[#fffaf3]/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:px-8">
         <Link href="/" onClick={() => setMenuOpen(false)} className="group inline-flex flex-col">
           <span className="font-serif text-base font-semibold tracking-[0.08em] text-[var(--base-strong)] sm:text-lg">
@@ -25,11 +51,27 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-lg border border-[var(--line)] bg-white px-3 py-2 text-sm font-semibold text-[var(--base-strong)] md:hidden"
-          aria-label="メニューを開く"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--line)] bg-white text-[var(--base-strong)] shadow-[0_4px_12px_rgba(69,56,39,0.08)] md:hidden"
+          aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={menuOpen}
         >
-          {menuOpen ? "閉じる" : "メニュー"}
+          <span className="relative block h-4 w-5">
+            <span
+              className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition duration-200 ${
+                menuOpen ? "translate-y-[7px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition duration-200 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[14px] h-0.5 w-5 rounded-full bg-current transition duration-200 ${
+                menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+              }`}
+            />
+          </span>
         </button>
 
         <nav className="hidden items-center gap-1 sm:gap-2 md:flex">
@@ -52,14 +94,29 @@ export function SiteHeader() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-[var(--line)] bg-[#fffaf3] md:hidden">
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
+        <button
+          type="button"
+          onClick={() => setMenuOpen(false)}
+          aria-label="メニューを閉じる"
+          className="fixed inset-0 top-[68px] z-40 bg-black/20 md:hidden"
+        />
+      )}
+
+      <div
+        className={`grid transition-all duration-200 md:hidden ${
+          menuOpen
+            ? "relative z-50 grid-rows-[1fr] border-t border-[var(--line)] opacity-100"
+            : "pointer-events-none grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden bg-[#fffaf3]">
+          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4">
             {primaryLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--base-soft)]"
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--base-soft)]"
               >
                 {link.label}
               </Link>
@@ -67,13 +124,13 @@ export function SiteHeader() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-1 inline-flex w-fit rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95"
+              className="mt-2 inline-flex w-fit rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-95"
             >
               無料相談
             </Link>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }
