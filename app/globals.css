@@ -58,4 +58,138 @@ a {
   background: var(--card);
   border-radius: 1.2rem;
   box-shadow: 0 8px 22px rgba(69, 56, 39, 0.08);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.section-card:hover {
+  transform: translateY(-3px);
+  border-color: #c9b89d;
+  box-shadow: 0 14px 28px rgba(69, 56, 39, 0.12);
+}
+
+@keyframes heroBackgroundMotion {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate3d(-0.8%, -0.5%, 0);
+  }
+  100% {
+    transform: scale(1.03) translate3d(0.6%, 0.4%, 0);
+  }
+}
+
+@keyframes heroGlowPulse {
+  0%,
+  100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 0.74;
+  }
+}
+
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-background-motion {
+  animation: heroBackgroundMotion 20s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.hero-overlay-glow {
+  animation: heroGlowPulse 9s ease-in-out infinite;
+}
+
+.hero-panel-motion {
+  animation: fadeUpSoft 720ms cubic-bezier(0.2, 0.65, 0.2, 1) both;
+}
+
+.hero-animate-eyebrow,
+.hero-animate-title,
+.hero-animate-description,
+.hero-action-fade {
+  opacity: 0;
+  animation: fadeUpSoft 620ms cubic-bezier(0.2, 0.65, 0.2, 1) both;
+}
+
+.hero-animate-eyebrow {
+  animation-delay: 90ms;
+}
+
+.hero-animate-title {
+  animation-delay: 160ms;
+}
+
+.hero-animate-description {
+  animation-delay: 220ms;
+}
+
+main > section:not(.hero-full-bleed) {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  animation: fadeUpSoft 700ms cubic-bezier(0.18, 0.7, 0.25, 1) both;
+}
+
+main > section:not(.hero-full-bleed):nth-of-type(2) {
+  animation-delay: 80ms;
+}
+
+main > section:not(.hero-full-bleed):nth-of-type(3) {
+  animation-delay: 150ms;
+}
+
+main > section:not(.hero-full-bleed):nth-of-type(4) {
+  animation-delay: 220ms;
+}
+
+main > section:not(.hero-full-bleed):nth-of-type(5) {
+  animation-delay: 290ms;
+}
+
+main > section:not(.hero-full-bleed):nth-of-type(6) {
+  animation-delay: 360ms;
+}
+
+main > section:not(.hero-full-bleed):nth-of-type(7) {
+  animation-delay: 430ms;
+}
+
+main > section:not(.hero-full-bleed):nth-of-type(8) {
+  animation-delay: 500ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-motion,
+  .hero-overlay-glow,
+  .hero-panel-motion,
+  .hero-animate-eyebrow,
+  .hero-animate-title,
+  .hero-animate-description,
+  .hero-action-fade,
+  main > section:not(.hero-full-bleed) {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .section-card {
+    transition: none;
+  }
+
+  .section-card:hover {
+    transform: none;
+    box-shadow: 0 8px 22px rgba(69, 56, 39, 0.08);
+  }
 }
