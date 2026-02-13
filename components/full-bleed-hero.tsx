@@ -54,7 +54,7 @@ export function FullBleedHero({
               <Link
                 key={action.href}
                 href={action.href}
-                style={{ animationDelay: `${280 + index * 90}ms` }}
+                style={{ animationDelay: `${210 + index * 70}ms` }}
                 className={
                   action.style === "secondary"
                     ? "hero-action-fade rounded-full border border-[var(--base)] bg-[rgba(255,255,255,0.86)] px-5 py-3 text-sm font-semibold text-[var(--base)] transition hover:bg-[var(--base-soft)]"

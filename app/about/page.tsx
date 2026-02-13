@@ -20,7 +20,7 @@ export default function AboutPage() {
         title="むずかしい手続きを、日常の言葉でわかりやすく"
         description="書類の準備や手続きの流れを丁寧に説明し、安心して進められる伴走型のサポートを大切にしています。"
         actions={[
-          { href: "/contact", label: "相談を始める" },
+          { href: "/contact", label: "相談する" },
           { href: "/works", label: "支援事例を見る", style: "secondary" },
         ]}
       />

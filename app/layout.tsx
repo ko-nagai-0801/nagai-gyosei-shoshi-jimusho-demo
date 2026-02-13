@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -80,6 +81,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        <Analytics />
       </body>
     </html>
   );

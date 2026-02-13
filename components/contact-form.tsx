@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+import { trackCvEvent } from "@/lib/cv-tracking";
+
 type FormState = {
   name: string;
   email: string;
@@ -20,6 +22,7 @@ export function ContactForm() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    trackCvEvent("contact_form_submit", { form: "contact_form" });
     setSubmitted(true);
     setForm(initialState);
   };

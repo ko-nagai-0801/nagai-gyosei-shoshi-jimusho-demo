@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { trackCvEvent } from "@/lib/cv-tracking";
 import { navLinks } from "@/lib/site-content";
 
 export function SiteHeader() {
@@ -86,9 +87,14 @@ export function SiteHeader() {
           ))}
           <Link
             href="/contact"
+            onClick={() =>
+              trackCvEvent("contact_cta_click", {
+                placement: "header_desktop",
+              })
+            }
             className="rounded-full bg-[var(--accent)] px-4 py-2 text-xs font-semibold text-white transition hover:brightness-95 sm:text-sm"
           >
-            無料相談
+            相談する
           </Link>
         </nav>
       </div>
@@ -123,10 +129,15 @@ export function SiteHeader() {
             ))}
             <Link
               href="/contact"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                trackCvEvent("contact_cta_click", {
+                  placement: "header_mobile",
+                });
+                setMenuOpen(false);
+              }}
               className="mt-2 inline-flex w-fit rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-95"
             >
-              無料相談
+              相談する
             </Link>
           </nav>
         </div>

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { ContactForm } from "@/components/contact-form";
+import { ContactMethodsSection } from "@/components/contact-methods-section";
 import { FullBleedHero } from "@/components/full-bleed-hero";
-import { contactMethods, officeQuickFacts } from "@/lib/site-content";
+import { officeQuickFacts } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -21,28 +21,12 @@ export default function ContactPage() {
         title="小さな疑問でも、まずはお気軽にご相談ください"
         description="メール・電話・オンライン相談の3つの窓口からご連絡いただけます。状況を伺い、必要な手続きをわかりやすくご案内します。"
         actions={[
-          { href: "#contact-form", label: "フォームへ進む" },
-          { href: "/pricing", label: "料金表を確認する", style: "secondary" },
+          { href: "#contact-form", label: "フォームで相談する" },
+          { href: "/pricing", label: "見積もりを依頼する", style: "secondary" },
         ]}
       />
 
-      <section className="space-y-6">
-        <h2 className="font-serif text-3xl text-[var(--base-strong)]">お問い合わせ方法</h2>
-        <div className="grid gap-4 md:grid-cols-3">
-          {contactMethods.map((method) => (
-            <article key={method.title} className="section-card p-6">
-              <h3 className="font-serif text-xl text-[var(--base-strong)]">{method.title}</h3>
-              <p className="mt-2 text-sm text-[var(--ink-soft)]">{method.detail}</p>
-              <Link
-                href={method.href}
-                className="mt-4 inline-flex rounded-full border border-[var(--base)] px-4 py-2 text-sm font-semibold text-[var(--base)] transition hover:bg-[var(--base)] hover:text-white"
-              >
-                {method.value}
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ContactMethodsSection />
 
       <section className="space-y-6">
         <div className="space-y-2">

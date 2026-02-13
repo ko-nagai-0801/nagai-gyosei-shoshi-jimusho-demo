@@ -31,7 +31,7 @@ export default function PricingPage() {
         title="料金表とお支払い条件のご案内"
         description="ご依頼前に費用の目安と適用条件を確認できるよう、基本料金・追加費用・支払条件・免責事項を明記しています。"
         actions={[
-          { href: "/contact", label: "見積もりを相談する" },
+          { href: "/contact", label: "見積もりを依頼する" },
           { href: "/works", label: "支援事例を見る", style: "secondary" },
         ]}
       />
@@ -167,7 +167,7 @@ export default function PricingPage() {
           href="/contact"
           className="inline-flex w-fit rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-95"
         >
-          具体的な見積もりを依頼する
+          見積もりを依頼する
         </Link>
       </section>
     </>
